@@ -65,31 +65,22 @@ console.assert(isVowel("2") === false)
 // // the string "tothohisos isos fofunon".
 // // ---------------------
 
-// function rovarspraket(input) {
-//   let string = input.toString()
-//   let consonant = "bcdfghjklmnpqrstvwxyz"
-
-//   if (consonant.includes(string)) {
-
-//     return join
-//   } else {
-//     throw new Error()
-//   }
-// }
-
-function rovarspraket(text) {
-  var string = text.toString().toLowerCase()
+function rovarspraket(input) {
+  var string = input.toString().toLowerCase()
   var vowels = ["a", "e", "i", "o", "u", " "]
-  var y = ""
-  for (i = 0; i < string.length; i++) {
-    var current = string.charAt(i)
-    if (vowels.indexOf(current) != -1) {
-      y = y + current
+  var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+  var output = ""
+
+  for (let i = 0; i < string.length; i++) {
+    var letter = string.charAt(i)
+    if (vowels.indexOf(letter) != -1 || numbers.indexOf(letter) != -1) {
+      output = output + letter
     } else {
-      y = y + (current + "o" + current)
+      output = output + (letter + "o" + letter)
     }
   }
-  return y
+
+  return output
 }
 
 console.assert(rovarspraket("a") === "a")
